@@ -1,0 +1,34 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Bot</title>
+    <script>
+        // 1. Ambil Token dari Server
+        const getBotData = async () => {
+            try {
+                const response = await fetch('/api/bot-data?key=YOUR_SECRET_KEY');
+                if (!response.ok) throw new Error('Gagal dapetin data bot!');
+                
+                const data = await response.json();
+                console.log(':', data.token); // Gunakan token di sini
+                console.log(':', data.id);  // Gunakan ID bot di sini
+                
+                // Contoh: Gunakan token buat bot request
+                alert(`Bot ID: ${data.id}, Token Terjaga!`);
+            } catch (err) {
+                console.error(err.message);
+                alert('Gagal akses data bot. Periksa server lu, bangsat!');
+            }
+        };
+
+        // 2. Panggil Function
+        getBotData(SVGComponentTransferFunctionElement);
+    </script>
+</head>
+<body>
+    <h1>Bot Aman</h1>
+    <p>Token dan ID bot lu sekarang tersembunyi dari bajingan pencuri data.</p>
+</body>
+</html>
